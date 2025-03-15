@@ -1,0 +1,106 @@
+/* Basic styling for the page */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+  gap: 20px;
+}
+
+/* Container for each ad */
+.ad-container {
+  position: relative;
+  width: 300px;
+  height: 250px;
+  background-color: #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Plank overlay that blocks the ad */
+.plank {
+  position: absolute;
+  width: 100%;
+  height: 33.33%; /* Make each plank take up one-third of the ad container's height */
+  background-image: url('https://img2.cgtrader.com/items/4146963/5357b720e9/large/minecraft-oak-planks-block-3d-model-5357b720e9.jpg');
+  background-size: cover;
+  background-position: center; /* Ensure the plank image is centered */
+  z-index: 10;
+  cursor: pointer;
+  opacity: 0.9; /* Increased opacity for better visibility */
+  border: 3px solid #000; /* Add border to each plank */
+  transition: opacity 0.3s ease;
+}
+
+/* Plank 1: Positioned at the top of the container */
+.plank:nth-child(1) {
+  top: 0;
+}
+
+/* Plank 2: Positioned in the middle of the container */
+.plank:nth-child(2) {
+  top: 33.33%; /* Positioned one-third from the top */
+}
+
+/* Plank 3: Positioned at the bottom of the container */
+.plank:nth-child(3) {
+  top: 66.66%; /* Positioned two-thirds from the top */
+}
+
+/* Content inside the ad */
+.ad-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  z-index: 5; /* Ensure the ad content is behind the planks */
+}
+
+/* Image inside the ad - Shrink and maintain aspect ratio */
+.ad-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image fills the container while preserving its aspect ratio */
+  border-radius: 8px;
+}
+
+/* Close button (X) */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+  color: white;
+  font-size: 18px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease;
+}
+
+/* Text for "Reclamele nu pot fi închise..." */
+.end-message {
+  color: red;
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px;
+  display: none; /* Initially hidden */
+}
